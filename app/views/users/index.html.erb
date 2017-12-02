@@ -1,0 +1,25 @@
+<div class="col-sm-12">
+    <table class="table table-bordered">
+        <tr>
+            <th>No</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Fullname</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <% @users.each do |user| %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.username %></td>
+                <td><%= user.password %></td>
+                <td><%= user.fullname %></td>
+                <td><%= user.status %></td>
+                <td>
+                    <%= link_to "Edit", edit_user_path(user.id), :class => 'btn btn-sm btn-secondary' %>
+                    <%= link_to "Delete", user_path(user.id), :class => 'btn btn-sm btn-danger', method: :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+</div>
