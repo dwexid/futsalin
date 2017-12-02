@@ -1,17 +1,13 @@
 class UsersController < ApplicationController
 
     def index
-    end
-
-    def all 
         @users = User.all
     end
 
     def login
-        @users = User.find(params[:id])
     end
 
-    def new
+    def register
         @user = User.new
     end
 
@@ -20,7 +16,7 @@ class UsersController < ApplicationController
         if @user.save
             redirect_to root_path
         else
-            render "new"
+            render "register"
         end
     end
 
@@ -35,13 +31,13 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         @user.update(getParams)
-        render root_path
+        redirect_to users_path
     end
 
     def destroy
         @user = User.find(params[:id])
         @user.destroy
-        render root_path
+        redirect_to users_path
     end
 
     private
