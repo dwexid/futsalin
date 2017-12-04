@@ -2,12 +2,12 @@
 
 one:
   username: MyString
-  password: MyString
+  password_digest: MyString
   fullname: MyString
   status: MyString
 
 two:
   username: MyString
-  password: MyString
+  password_digest: MyString
   fullname: MyString
   status: MyString

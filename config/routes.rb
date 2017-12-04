@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root 'home#index'
   
   get '/home', to: 'home#index'
-  get '/login', to: 'users#login'
+  get '/login', to: 'sessions#login'
   get '/register', to: 'users#register'
-  get '/validate', to: 'users#validate'
+  post 'users/validate', to: 'sessions#create'
   
   resources :users, except: [:new]
   resources :owners
