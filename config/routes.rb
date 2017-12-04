@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get '/home', to: 'home#index'
   get '/login', to: 'users#login'
   get '/register', to: 'users#register'
+  get '/validate', to: 'users#validate'
   
-  resources :users
+  resources :users, except: [:new]
+  resources :owners
 
 end

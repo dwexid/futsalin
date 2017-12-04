@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     def login
     end
 
-    def register
+    def register 
         @user = User.new
     end
 
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
     private
     def getParams
-        params.require(:user).permit(:username, :password, :nama_lengkap)
+        params.require(:user).permit(:username, :password, :fullname)
     end
 
 end
