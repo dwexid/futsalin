@@ -3,3 +3,6 @@ rvm:
 - 5.1
 - jruby
 - rbx-3
+
+env:
+- DB:mysql2
