@@ -9,7 +9,11 @@ class SessionsController < ApplicationController
 
         if @user.present? && @user.authenticate(getParams[:password])
             cookies.permanent.signed[:account_id] = @user.id
-            redirect_to root_path
+            if @user.status=='admin'
+                redirect_to admin_path
+            else
+                redirect_to root_path
+            end
         else
             render :login
         end
@@ -17,11 +21,11 @@ class SessionsController < ApplicationController
 
     def logout
         cookies.delete(:account_id)
-        redirect_to root_path
+        redirect_to login_path
     end
     
     private
     def getParams
-        params.require(:user).permit(:username, :password, :fullname)
+        params.require(:session).permit(:username, :password)
     end
 end

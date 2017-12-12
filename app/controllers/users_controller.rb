@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
+        render layout: 'admin'
     end
 
     def login
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(getParams)
         if @user.save
-            redirect_to root_path
+            redirect_to users_path
         else
             render "register"
         end
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
         @user.update(getParams)
         redirect_to users_path
     end
-
+   
     def destroy
         @user = User.find(params[:id])
         @user.destroy
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
 
     private
     def getParams
-        params.require(:user).permit(:username, :password, :fullname)
+        params.require(:user).permit(:username, :password, :fullname, :status)
     end
 
 end

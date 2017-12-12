@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Futsal</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <div class="container-fluid h-100">
+        <div class="row test h-100  ">
+            <div class="col-sm-2 sidebar h-100">
+                <div class="row nav-title">
+                    <a href="#">Hi I'm a</a>
+                </div>
+                <nav class="admin-nav">
+                    <ul class="w-100">
+                        <li><a href="#">Admin</a></li>
+                        <li><a href="<%= users_path %>">Member</a></li>
+                        <li><a href="#">Owner</a></li>
+                        <li><a href="#">Notifikasi</a></li>
+                        <li><a href="#">Laporan</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-sm-10 main">
+                <div class="row">
+                    <div class="col topnav bg-info">
+                        <div class="float-left">left</div>
+                        <div class="float-right"><a href="<%= logout_path %>">Logout</a></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="content">
+                    <%= yield %>
+                </div>
+            </div>  
+        </div>
+    </div>
+    
+  </body>
+</html>

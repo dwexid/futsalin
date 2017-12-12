@@ -1,9 +1,9 @@
 <div class="row" id="login-form">
     <div class="col-md-6 offset-md-3">
-        <div class="col-md-12 login-title">
-            <h5 class="display-5">Silahkan login</h5>
+        <div class="col-md-12 title" style="margin-bottom: 30px">
+            <span>Silahkan login</span>
         </div>
-        <%= form_for @user do |f| %>
+        <%= form_for(:session, url: validate_path) do |f| %>
             <div class="form-group row">
                 <%= f.label "Username", :class => 'col-form-label col-sm-4'%>
                 <div class="col-sm-8" >
