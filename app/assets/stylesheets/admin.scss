@@ -1,0 +1,72 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$green: #1BA39C;
+html,
+body {
+    height: 100% !important;
+    background: #f9f9f9;
+}
+
+.sidebar {
+    background-color: #ecf0f1;
+}
+
+.main {
+    background-color: #f9f9f9;
+}
+
+.topnav {
+    padding: 12px;
+}
+
+.topnav a,
+.topnav a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+.admin-nav {
+    margin-top: 20px;
+}
+
+.admin-nav ul {
+    padding: 0;
+}
+
+.admin-nav ul li {
+    list-style-type: none;
+    margin-bottom: 4px;
+}
+
+.admin-nav li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    border-bottom: 3px solid #ddd;
+}
+
+.admin-nav li a:hover {
+    border-left: 6px solid $green;
+    background: #ddd;
+}
+
+.nav-title {
+    padding: 12px;
+    color: #fff;
+    background: $green;
+}
+
+.nav-title a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.content {
+    margin: 30px 0;
+    padding: 20px 15px;
+}
+
+.card {
+    border-radius: 1px !important;
+}
