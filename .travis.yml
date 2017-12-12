@@ -1,8 +1,18 @@
 language: ruby
 rvm:
-- 5.1
-- jruby
-- rbx-3
-
+  - "2.4.1"
 env:
-- DB:mysql2
+  - DB=mysql
+script: 
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec test/
+
+before_script:
+  - mysql -e 'create database futsalin_test'
+
+test:
+  adapter: mysql2
+  database: futsalin_test
+  username: travis
+  encoding: utf8
