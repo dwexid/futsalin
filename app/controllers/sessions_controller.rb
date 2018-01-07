@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
     def login
+        is_logged?
         @user = User.new
     end
 
@@ -10,12 +11,15 @@ class SessionsController < ApplicationController
         if @user.present? && @user.authenticate(getParams[:password])
             cookies.permanent.signed[:account_id] = @user.id
             if @user.status=='admin'
-                redirect_to admin_path
+                redirect_to admin_dashboard_path
+            elsif @user.status =='owner'
+                redirect_to owner_dashboard_path
             else
                 redirect_to root_path
             end
         else
-            render :login
+            flash[:notice] = "Username / Password salah !!"
+            redirect_to login_path
         end
     end
 
@@ -27,5 +31,12 @@ class SessionsController < ApplicationController
     private
     def getParams
         params.require(:session).permit(:username, :password)
+    end
+    
+    private
+    def is_logged?
+        if account_signed_in?
+            redirect_to root_path
+        end
     end
 end

@@ -20,7 +20,15 @@
                 <li class="nav-item"><%= link_to "Register", register_path, :class => 'nav-link' %></li>
                 <li class="nav-item"><%= link_to "Login", login_path, :class => 'nav-link' %></li>
             <% else %>
-                <li class="nav-item"><%= link_to current_account.username, logout_path, :class => 'nav-link' %></li>
+                <% 
+                    dashboard = root_path
+                    if current_account.status=='owner' 
+                        dashboard=owner_dashboard_path
+                    elsif current_account.status=='admin' 
+                        dashboard=admin_dashboard_path
+                    end
+                %>
+                <li class="nav-item"><%= link_to current_account.username, dashboard, :class => 'nav-link' %></li>
                 <li class="nav-item"><%= link_to "Logout", logout_path, :class => 'nav-link' %></li>
             <% end %>
             

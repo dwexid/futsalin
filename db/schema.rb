@@ -10,22 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211013327) do
+ActiveRecord::Schema.define(version: 20180107121842) do
+
+  create_table "jadwals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "id_owner"
+    t.integer "id_lapang"
+    t.integer "id_user"
+    t.date "tgl"
+    t.integer "beg_time"
+    t.integer "end_time"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lapangs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "id_owner"
+    t.string "nama_lapang"
+    t.integer "harga_perjam"
+    t.string "jenis"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "owners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "username"
-    t.string "digest_password"
+    t.integer "id_user"
     t.string "nama_tempat"
     t.string "alamat"
     t.string "kontak"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "username", null: false
+    t.string "email"
     t.string "password_digest"
     t.string "fullname"
+    t.string "ttl"
+    t.string "jk"
+    t.string "kontak"
+    t.string "alamat"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

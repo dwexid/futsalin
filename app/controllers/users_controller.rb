@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 
     def index
-        @users = User.all
-        render layout: 'admin'
     end
 
     def login
@@ -15,14 +13,10 @@ class UsersController < ApplicationController
     def create
         @user = User.new(getParams)
         if @user.save
-            redirect_to users_path
+            redirect_to login_path
         else
             render "register"
         end
-    end
-
-    def show
-        @users = User.find(params[:id])
     end
 
     def edit
@@ -32,15 +26,20 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         @user.update(getParams)
-        redirect_to users_path
+        path = users_path
+        role = current_account.status
+        if role=='admin'
+            path = all_users_path
+        end
+        redirect_to path
     end
-   
+    
     def destroy
         @user = User.find(params[:id])
         @user.destroy
-        redirect_to users_path
+        redirect_to all_users_path
     end
-
+   
     private
     def getParams
         params.require(:user).permit(:username, :password, :fullname, :status)

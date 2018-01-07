@@ -1,0 +1,5 @@
+
+var isi = "<tr> <% a=6 %> <% b=7 %> <% for i in 0..20 %> <% if @jdw[i].nil? %> <td> - <br><button type='button' data-target='#tampilkan' data-toggle='modal' class='btn-booking btn btn-sm bg-success'><%=a<10?'0':''%><span id='get-mulai'><%=a%></span>:00-<%=b<10?'0':''%><%=b%>:00</button></td> <% elsif @jdw[i].status==0; %> <td> <%=@jdw[i].fullname%> <br><span class='btn btn-sm btn-warning'><%=a<10?'0':''%><%=a%>:00-<%=b<10?'0':''%><%=b%>:00</span></td> <% elsif @jdw[i].status==1%> <td> <%=@jdw[i].fullname%> <br><span class='btn btn-sm btn-danger'><%=a<10?'0':''%><%=a%>:00-<%=b<10?'0':''%><%=b%>:00</span></td> <% end %> <% if i==6 || i==13%> </tr><tr> <% end %> <% a+=1 %> <% b+=1 %> <% if a==24 %> <% a=0 %> <% b=1 %> <% end %> <% end %> </tr>";
+$("#change_jadwal").html(isi);
+$("#change_jadwal").fadeIn('slow');
+

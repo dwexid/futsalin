@@ -1,8 +1,3 @@
-<% content_for :notif do %>
-    <span class="float-right new-order"><%=@notif%><span>
-<% end %>
-
-
  <div class="row" >
     <div class="col-md-10 offset-md-1">
         <div class="col-md-12 title">
@@ -16,11 +11,9 @@
                     <p><span class="display-5">Kontak: <%=@tempat.kontak%></span></p>
                     <p><span class="display-5">Instagram: @futsaleuy</span></p>
                     <p><span class="display-5">Jumlah Lapang: 200</span></p>
-                    <%= link_to 'Edit', edit_owner_path(@tempat.id), :class => 'btn btn-info'%>
-                    <%= link_to 'Tambah lapang', add_lapang_path(@tempat.id), :class => 'btn bg-hejo'%>
                 </div>
-                <div class="col-sm-4 img-profil">
-                    <%= image_tag (@tempat.image_url), :class => 'im' unless @tempat.image.blank? %>
+                <div class="col-sm-5 img-tempat">
+                    <%= image_tag ('a.jpg'), class: '' %>
                 </div>
             </div>
         </div>
@@ -33,11 +26,10 @@
                 <% @lapangs.each do |l| %>
                 <div class="col-sm-3">
                     <div class="card">
-                        <%= image_tag (l.image_url), :class => 'img-thumb card-img-top' unless l.image.blank? %>
+                        <%= image_tag ('a.jpg'), class: 'card-img-top' %>
                         <div style="padding: 15px" class="card-block">
                             <h5 class="display-5"><%= l.nama_lapang %></h5>
-                            <%= link_to 'Lihat jadwal', show_lapang_as_member_path(params[:id_owner],l.id), :class => 'btn btn-sm btn-info' %>
-                            <%= link_to 'Edit', edit_lapang_path(params[:id_owner],l.id), :class => 'btn btn-sm bg-hejo' %>
+                            <%= link_to 'Lihat jadwal', show_lapang_as_member_path(params[:id],l.id), :class => 'btn btn-sm btn-info' %>
                         </div>
                     </div>
                 </div>

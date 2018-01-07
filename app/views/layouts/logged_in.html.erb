@@ -10,17 +10,23 @@
 
   <body>
 
-    <div class="container-fluid h-100">
-        <div class="row h-100">
-            <div class="col-sm-2 sidebar h-100">
+    <div class="container-fluid">
+        <div class="row naon">
+            <div class="col-sm-2 sidebar h-100" style="min-height:650px !important">
                 <div class="row nav-title">
                     <a href="#">Hi I'm a</a>
                 </div>
                 <nav class="admin-nav">
                     <ul class="w-100">
-                        <li><a href="<%= admin_dashboard_path %>">Dashboard</a></li>
-                        <li><a href="<%= all_users_path %>">Users</a></li>
-                        <li><a href="<%= owners_path %>">Owner</a></li>
+                        <li><a href="<%= owner_dashboard_path %>">Dashboard</a></li>
+                        <li>
+                            <a href="<%= order_booking_path(params[:id_owner]) %>">
+                                Order Booking <%=yield :notif%>
+                            </a>
+                        </li>
+                        <li><a href="#">Jadwal</span></a></li>
+                        <li><a href="#">Notifikasi</a></li>
+                        <li><a href="#">Laporan</a></li>
                     </ul>
                 </nav>
             </div>

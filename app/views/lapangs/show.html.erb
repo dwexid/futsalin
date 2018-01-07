@@ -1,0 +1,167 @@
+ <div class="row" >
+    <div class="col-md-10 offset-md-1">
+        <% if flash[:success]%><div class="alert alert-success"><%=flash[:success]%></div><%end%>
+        <div class="col-md-12 title">
+            <span>Profil Lapang</span>
+        </div>
+        <div class="col-md-12 main-content">
+            <div class="row">
+                <div class="col-md-5 offset-md-1">
+                    <h3 class="display-5"><%=@lapang.nama_lapang%></h3><br>
+                    <p><span class="display-5">Jenis lapang: <%=@lapang.jenis%></span></p>
+                    <p><span class="display-5">Harga sewa perjam: <%=@lapang.harga_perjam%></span></p>
+                    <p><span class="display-5">Instagram: @futsaleuy</span></p>
+                    <p><span class="display-5">Jumlah Lapang: 200</span></p>
+                </div>
+                <div class="col-sm-4 img-profil">
+                    <%= image_tag (@lapang.image_url), :class => 'im' unless @lapang.image.blank? %>
+                </div>
+            </div>
+        </div>
+
+        <div class="title">
+            <span>Jadwal</span>
+        </div>
+        <div class="col-md-12 main-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table  jadwal">
+                        <thead>
+                            <tr class="bg-hejo2">
+                                <% for t in 0..6 %>
+                                    <% time = Time.now + t.days %>
+                                    <td>
+                                        <% hari = time.strftime("%A") %>
+                                        <%= hari=='Sunday' ? 'Minggu':''%> 
+                                        <%= hari=='Monday' ? 'Senin':''%> 
+                                        <%= hari=='Tuesday' ? 'Selasa':''%> 
+                                        <%= hari=='Wednesday' ? 'Rabu':''%> 
+                                        <%= hari=='Thursday' ? 'Kamis':''%> 
+                                        <%= hari=='Friday' ? 'Jumat':''%> 
+                                        <%= hari=='Saturday' ? 'Sabtu':''%><br>
+                                        <%= link_to time.strftime('%Y-%m-%d'), getjadwal_path(@lapang.id,time.strftime("%Y-%m-%d")), remote: true, :class => 'tanggal'  %>
+                                    </td>
+                                <% end %>
+                            <tr>
+                        </thead>
+                        <tbody id="change_jadwal">
+                            <tr>
+                                <% a=6 %>
+                                <% b=7 %>
+                                <% for i in 0..20 %>
+                                    <% if @jdw[i].nil? %>
+                                        <td> - <br><button type="button" data-target="#tampilkan" data-toggle="modal" class="btn-booking btn btn-sm bg-success"><%=a<10?'0':''%><span id="get-mulai"><%=a%></span>:00-<%=b<10?'0':''%><%=b%>:00</button></td>
+                                    <% elsif @jdw[i].status==0; %>
+                                        <td> <%=@jdw[i].fullname%>  <br><span class="btn btn-sm btn-warning"><%=a<10?'0':''%><%=a%>:00-<%=b<10?'0':''%><%=b%>:00</span></td>
+                                    <% elsif @jdw[i].status==1%>
+                                        <td> <%=@jdw[i].fullname%>  <br><span class="btn btn-sm btn-danger"><%=a<10?'0':''%><%=a%>:00-<%=b<10?'0':''%><%=b%>:00</span></td>
+                                    <% end %>
+
+                                    <% if i==6 || i==13%>
+                                        </tr><tr>
+                                    <% end %>
+                                    <% a+=1 %>
+                                    <% b+=1 %>
+                                    <% if a==24 %>
+                                        <% a=0 %>
+                                        <% b=1 %>
+                                    <% end %>
+                                <% end %>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="keterangan">
+                        <hr>
+                        <div class="display-5"><i>Keterangan: </i></div><br>
+                        <div class="kotak bg-success"></div>
+                        <div class="desc">&nbsp; Kosong (tidak ada jadwal) &nbsp;&nbsp;&nbsp;&nbsp;</div>
+                        <div class="kotak bg-warning"></div>
+                        <div class="desc">&nbsp; Dalam proses booking &nbsp;&nbsp;&nbsp;&nbsp;</div>
+                        <div class="kotak bg-danger disabled"></div>
+                        <div class="desc">&nbsp; Telah dibooking</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="tampilkan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-hejo2">
+        <h5 class="modal-title" id="exampleModalLongTitle">Detail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for @jadwal_new do |j| %>
+
+            <% flash[:tempat]=params[:id_owner]%>
+            <% flash[:id_lap]=params[:id]%>
+
+            <div>
+                <% if account_signed_in? %><%= j.hidden_field :id_user, :value => current_account.id %><%end%>
+                <%= j.hidden_field :id_lapang, :value => @lapang.id %>
+                <%= j.hidden_field :tgl, :value => Time.now.strftime("%Y-%m-%d") %>
+                <%= j.hidden_field :beg_time %>
+                <%= j.hidden_field :end_time %>
+                <%= j.hidden_field :id_owner, :value => params[:id_owner] %> 
+                <p>Lapang: <%=@lapang.nama_lapang%></p>
+                <p>
+                    <select class="form-control" id="durasi">
+                        <option value="1">1 jam</option>
+                        <option value="2">2 jam</option>
+                    </select>
+                <p>
+                <p>Waktu : <span id="tgl"><%= Time.now.strftime("%Y-%m-%d") %></span></p>
+                <p>Jam &nbsp;&nbsp; &nbsp;: <span id="mulai">14</span>:00-<span id="selesai">14</span>:00</p>
+            </div>
+            <button style="cursor:pointer" type="submit" class="btn bg-hejo2">Booking</button>
+            <button style="cursor:pointer" type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+    $('thead td:first-child a').addClass('active');
+
+    $(".btn-booking").click(function(){
+        start = $(this).find('#get-mulai').html();
+        $('#mulai').html(start);
+        $('#jadwal_beg_time').val(start);
+        selesai = parseInt(start)+1;
+        $('#selesai').html(selesai);
+        $('#jadwal_end_time').val(selesai);
+        $('#durasi').val(1);
+    });
+
+    $('#durasi').change(function(){
+        isi = $('#durasi').val();
+        sls = $('#selesai');
+        selesai_bef = parseInt(sls.html())
+        if(isi==2)
+            selesai_bef+=1;
+        else if(isi==1)
+            selesai_bef-=1;
+        
+        sls.html(selesai_bef);
+        $('#jadwal_end_time').val(selesai_bef)
+    });
+
+    $('.tanggal').click(function(){
+        $("#change_jadwal").fadeOut('slow');
+        isi = $(this).html();
+        $('#jadwal_tgl').val(isi);
+        $('#tgl').html(isi);
+
+        $('.tanggal').removeClass('active');
+        $(this).addClass('active');    
+    });
+</script>

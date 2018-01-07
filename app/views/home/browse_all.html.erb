@@ -1,17 +1,10 @@
-<% content_for :jumbotron do %>
-
-    <div class="jumbotron">
-        <h1 class="display-4">Futsal App</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. </p>
-
-        <hr class="my-4">
-        <p class="lead"><a class="btn btn-info">Learn more..</a></p>
-    </div>
-<% end %>
-
+<div class="col-sm-12 searchbox">
+    <form class="form-inline col-md-6 offset-md-3" style="margin: auto">
+        <input class="form-control mr-sm-2" type="text" placeholder="Nama kota">
+        <input class="form-control mr-sm-2" type="text" placeholder="Tempat futsal">
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</div>
 <div class="col-sm-12" style="margin-bottom: 30px">
     <div class="title">Tempat futsal </div>
     <div class="row">
@@ -29,5 +22,4 @@
         <% end %>
     </div>
     <hr style="background: #ddd">
-    <div style="text-align:right"><%= link_to 'Tampilkan lebih banyak..', browse_all_path, :class => 'btn btn-info'%></div>
 </div>
