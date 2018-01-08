@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-info">
     <div class="container">
-        <%= link_to "FUTSALIN", root_path, :class => 'navbar-brand lead'%>
+        <%= link_to "~ futsalin", root_path, :class => 'navbar-brand lead'%>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#me" aria-controls="me" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -8,10 +8,6 @@
         <div class="collapse navbar-collapse" id="me">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active lead">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item lead">
-                    <a class="nav-link" href="#">About</a>
                 </li>
             </ul>
             <ul class="navbar-nav pull-right">
@@ -28,7 +24,12 @@
                         dashboard=admin_dashboard_path
                     end
                 %>
-                <li class="nav-item"><%= link_to current_account.username, dashboard, :class => 'nav-link' %></li>
+                <li class="nav-item">
+                    <a href="<%=notif_path(current_account.id)%>" class="nav-link">
+                        Notification <span style="position:relative;bottom: 3px" class="new-order">1 </span>
+                    </a>
+                </li>
+                <li class="nav-item"><%= link_to "Edit profil", edit_user_path(current_account.id), :class => 'nav-link'%></li>
                 <li class="nav-item"><%= link_to "Logout", logout_path, :class => 'nav-link' %></li>
             <% end %>
             

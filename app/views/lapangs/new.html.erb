@@ -4,6 +4,7 @@
             <span>Tambah lapang futsal</span>
         </div>
         <div class="col-md-12 main-content">
+            <% flash[:url] = manage_tempat_path(params[:id_owner])%>
             <%= form_for @lapang do |f| %>
                 <div class="form-group row">
                     <%= f.label "Nama lapang", :class => 'col-form-label col-sm-3 offset-sm-1'%>

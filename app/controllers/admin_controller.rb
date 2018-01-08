@@ -27,9 +27,8 @@ class AdminController < ApplicationController
   end
 
   def owners
-    @users = User.where(status: 'owner')
+    @owners = Owner.select("owners.*, users.fullname").joins("inner join users on owners.id_user=users.id").order(:id_user)
     @content_title = 'Data Owner'
-    render 'users'
   end
 
   def destroy

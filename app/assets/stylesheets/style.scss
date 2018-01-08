@@ -60,7 +60,7 @@ html {
 
 //
 .main-content {
-    background: #f9f9f9;
+    background: #fdfdfd;
     margin-top: -20px;
     margin-bottom: 30px;
     padding: 20px;
@@ -177,14 +177,44 @@ thead td a.active {
 }
 
 .img-profil {
-    overflow: hidden;
+    overflow: hidden !important;
     height: 300px;
     padding: 0 !important;
-    border: 3px solid #ddd;
+    border: 1px solid #ddd;
 }
 
-.img-profil img {
+.img-profil img,
+.img-thumb img {
     margin: auto !important;
     width: auto;
     height: 100%;
+}
+
+.img-thumb {
+    overflow: hidden;
+    height: 170px;
+    padding: 0 !important;
+}
+
+.img-thumb img {
+    width: 100%;
+    height: auto;
+}
+
+.brand {
+    text-decoration: none !important;
+    color: #eee !important;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.main-content {
+    color: #555;
+}
+
+.navbar-brand {
+    color: #eee !important;
+    font-weight: bold;
+    font-style: italic;
 }

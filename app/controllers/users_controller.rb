@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         @user.update(getParams)
-        path = users_path
+        path = root_path
         role = current_account.status
         if role=='admin'
             path = all_users_path

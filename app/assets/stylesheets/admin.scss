@@ -14,12 +14,18 @@ body {
     min-height: 500px !important;
 }
 
+.sidebar {
+    border-right: 1px solid #ddd;
+}
+
 .main {
     background-color: #f5f5f5;
+    color: #555;
 }
 
 .topnav {
     padding: 12px;
+    font-size: 18px;
 }
 
 .topnav a,

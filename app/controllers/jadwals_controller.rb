@@ -26,6 +26,13 @@ class JadwalsController < ApplicationController
         @jadwal = Jadwal.find(params[:id])
         @jadwal.status = 1;
         @jadwal.save
+
+        notif = Notif.new
+        notif.id_user = @jadwal.id_user
+        notif.isi = "Order booking berhasil"
+        notif.status = 0;
+        notif.save
+        
         redirect_to flash[:url]
     end
 

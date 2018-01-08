@@ -1,9 +1,9 @@
 <div class="col-sm-12 searchbox">
-    <form class="form-inline col-md-6 offset-md-3" style="margin: auto">
-        <input class="form-control mr-sm-2" type="text" placeholder="Nama kota">
-        <input class="form-control mr-sm-2" type="text" placeholder="Tempat futsal">
+    <%= form_tag(cari_path, {:method => "get", class: 'form-inline col-md-6 offset-md-3'}) do %>
+        <%= text_field_tag 'kota', @kota, placeholder: 'Nama kota', class: 'form-control mr-sm-2'%>
+        <%= text_field_tag 'cari', @cari, placeholder: 'Tempat futsal', class: 'form-control mr-sm-2'%>
         <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <% end %>
 </div>
 <div class="col-sm-12" style="margin-bottom: 30px">
     <div class="title">Tempat futsal </div>

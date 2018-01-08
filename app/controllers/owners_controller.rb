@@ -13,6 +13,11 @@ class OwnersController < ApplicationController
         @notif = getNotif(params[:id_owner])
         @orders = Jadwal.select('owners.nama_tempat,jadwals.*').joins('inner join owners on jadwals.id_owner=owners.id').where("id_owner=? and status=?", params[:id_owner],0)
     end
+    
+    def riwayat
+        @notif = getNotif(params[:id_owner])
+        @orders = Jadwal.select('owners.nama_tempat,jadwals.*').joins('inner join owners on jadwals.id_owner=owners.id').where("id_owner=? and status=?", params[:id_owner],1)
+    end
 
     def show
         @notif = getNotif(params[:id_owner])

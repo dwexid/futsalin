@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   get '/home', to: 'home#index'
   get '/tempat/:id/:nama_tempat', to: 'home#show', as: 'tempat_futsal'
   get '/browse-all', to: 'home#browse_all'
+  get '/browse-all/s', to: 'home#cari', as: 'cari'
 
 
   #User && Session
-  resources :users, only: [:create,:edit,:destroy,:update]
+  resources :users, only: [:create,:edit,:destroy,:update, :show]
   get '/login', to: 'sessions#login'
   get '/logout', to: 'sessions#logout'
   get '/register', to: 'users#register'
@@ -34,13 +35,16 @@ Rails.application.routes.draw do
   get '/owner/dashboard', to: 'owners#index'
   get '/owner/manage/:id_owner', to: 'owners#show', as: 'manage_tempat'
   get '/owner/manage/:id_owner/order', to: 'owners#order', as: 'order_booking'
+  get '/owner/manage/:id_owner/riwayat', to: 'owners#riwayat', as: 'riwayat'
 
   #Jadwal
   resources :jadwals, only: [:create, :destroy, :update]
   get '/jadwal/:id_lapang/:tgl/', to: 'jadwals#get_jadwal', as: 'getjadwal'
   put '/verifikasi/:id', to: 'jadwals#update', as: 'verif_order'
 
-
+  #Notif
+  resources :notif, only: [:create]
+  get '/notif/:id', to: 'home#notif', as: 'notif'
  
 end
  

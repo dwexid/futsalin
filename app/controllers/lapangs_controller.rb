@@ -45,7 +45,7 @@ class LapangsController < ApplicationController
     def create
         @lapang = Lapang.new(getParams)
         if @lapang.save
-            redirect_to owner_dashboard_path
+            redirect_to flash[:url]
         else
             render "register"
         end

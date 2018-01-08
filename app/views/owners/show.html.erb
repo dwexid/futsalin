@@ -12,15 +12,15 @@
             <div class="row">
                 <div class="col-md-5 offset-md-1">
                     <h3 class="display-5"><%=@tempat.nama_tempat%></h3><br>
-                    <p><span class="display-5">Alamat: <%=@tempat.alamat%></span></p>
-                    <p><span class="display-5">Kontak: <%=@tempat.kontak%></span></p>
-                    <p><span class="display-5">Instagram: @futsaleuy</span></p>
-                    <p><span class="display-5">Jumlah Lapang: 200</span></p>
+                    <p><span class="display-5"><b>Alamat:</b> <%=@tempat.alamat%></span></p>
+                    <p><span class="display-5"><b>Kontak:</b> <%=@tempat.kontak%></span></p>
+                    <p><span class="display-5"><b>Instagram:</b> @futsaleuy</span></p>
+                    <p><span class="display-5"><b>Jumlah Lapang:</b> 200</span></p>
                     <%= link_to 'Edit', edit_owner_path(@tempat.id), :class => 'btn btn-info'%>
                     <%= link_to 'Tambah lapang', add_lapang_path(@tempat.id), :class => 'btn bg-hejo'%>
                 </div>
                 <div class="col-sm-4 img-profil">
-                    <%= image_tag (@tempat.image_url), :class => 'im' unless @tempat.image.blank? %>
+                    <%= image_tag (@tempat.image_url), :class => 'img-thumbnail' unless @tempat.image.blank? %>
                 </div>
             </div>
         </div>
@@ -33,7 +33,9 @@
                 <% @lapangs.each do |l| %>
                 <div class="col-sm-3">
                     <div class="card">
-                        <%= image_tag (l.image_url), :class => 'img-thumb card-img-top' unless l.image.blank? %>
+                        <div class="img-thumb">
+                            <%= image_tag (l.image_url), :class => 'card-img-top' unless l.image.blank? %>
+                        </div>
                         <div style="padding: 15px" class="card-block">
                             <h5 class="display-5"><%= l.nama_lapang %></h5>
                             <%= link_to 'Lihat jadwal', show_lapang_as_member_path(params[:id_owner],l.id), :class => 'btn btn-sm btn-info' %>
