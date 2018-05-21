@@ -4,6 +4,6 @@ class User < ApplicationRecord
     validates :fullname, presence: true
     validates :status, presence: true
 
-    has_secure_password
+    #has_secure_password
 
 end
