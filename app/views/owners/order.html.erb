@@ -1,0 +1,43 @@
+<% content_for :notif do %>
+    <span class="float-right new-order"><%=@notif%><span>
+<% end %>
+
+<div class="row" >
+    <div class="col-md-10 offset-md-1">
+        <div class="col-md-12 title">
+            <span>Order booking</span>
+        </div>
+        <div class="col-md-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Lapang</th>
+                        <th>Tanggal</th>
+                        <th>Jam Mulai</th>
+                        <th>Jam Selesai</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                <% no=1 %>
+                <% flash[:url] = order_booking_path(params[:id_owner])%>
+                <% @orders.each do |o| %>
+                    <tr>
+                        <td><%=no%></td>
+                        <td><%=o.nama_tempat%></td>
+                        <td><%=o.tgl%></td>
+                        <td><%=o.beg_time<10?'0':''%><%=o.beg_time%>:00</td>
+                        <td><%=o.end_time<10?'0':''%><%=o.end_time%>:00</td>
+                        <td>
+                            <%= link_to 'Accept', jadwal_path(o.id), method: :patch, :class => 'btn btn-sm btn-success'%>
+                            <%= link_to 'Reject', root_path, :class => 'btn btn-sm btn-danger'%>
+                        </td>
+                    </tr>
+                <% no+=1 %>
+                <% end %>
+                </tbody>
+        </div>
+    </div>
+</div>

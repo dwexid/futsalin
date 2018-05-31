@@ -1,18 +1,34 @@
-<div class="col-sm-12">
-    <table class="table table-bordered">
-        <tr>
-            <th>No</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Fullname</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>User1</td>
-            <td>****</td>
-            <td>User Name</td>
-            <td>--</td>
-        </tr>
-    </table>
+<% content_for :jumbotron do %>
+
+    <div class="jumbotron" style="z-index: 99">
+        <h1 class="display-4"><i>~ Futsalin</i></h1>
+        <p class="lead">
+            is a web-based software built to simplify the process of rent futsal field. 
+            In this application the user (futsal enthusiasts) can receive the schedule information 
+            and field list inputted by the owner (futsal field providers), the user can also specify 
+            the schedule and the field they will rent. In addition users can also register as owner. and the owners can input or update futsal field data as well as rental schedule. </p>
+        <hr class="my-4">
+        <p class="lead"><a class="btn btn-info" style="width: 160px;border-radius:50px !important">MULAI</a></p>
+    </div>
+<% end %>
+
+
+<div class="col-sm-12" style="margin-bottom: 30px">
+    <div class="title">Tempat futsal </div>
+    <div class="row">
+        <% @owners.each do |own| %>
+            <div class="col-md-3 col-sm-4 col-xs-6 grid-tmp">
+                <div class="card" style="overvlow:hidden">
+                    <%= image_tag (own.image_url), class: 'card-img-top' %>
+                    <div style="padding: 15px" class="card-block">
+                        <h4 class="card-title"><%=own.nama_tempat%></h4>
+                        <p class="card-text"><%=own.alamat%><br><%=own.kontak%></p>
+                        <%= link_to 'Lihat jadwal', tempat_futsal_path(own.id,own.nama_tempat), :class => 'btn bg-hejo2'%>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <hr style="background: #ddd">
+    <div style="text-align:right"><%= link_to 'Tampilkan lebih banyak..', browse_all_path, :class => 'btn btn-info'%></div>
 </div>

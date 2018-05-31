@@ -1,0 +1,25 @@
+<div class="col-sm-12 searchbox">
+    <%= form_tag(cari_path, {:method => "get", class: 'form-inline col-md-6 offset-md-3'}) do %>
+        <%= text_field_tag 'kota', @kota, placeholder: 'Alamat', class: 'form-control mr-sm-2'%>
+        <%= text_field_tag 'cari', @cari, placeholder: 'Nama gor', class: 'form-control mr-sm-2'%>
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+    <% end %>
+</div>
+<div class="col-sm-12" style="margin-bottom: 30px">
+    <div class="title">Tempat futsal </div>
+    <div class="row">
+        <% @owners.each do |own| %>
+            <div class="col-md-3 col-sm-4 col-xs-6 grid-tmp">
+                <div class="card">
+                    <%= image_tag ('a.jpg'), class: 'card-img-top' %>
+                    <div style="padding: 15px" class="card-block">
+                        <h4 class="card-title"><%=own.nama_tempat%></h4>
+                        <p class="card-text"><%=own.alamat%><br><%=own.kontak%></p>
+                        <%= link_to 'Lihat jadwal', tempat_futsal_path(own.id,own.nama_tempat), :class => 'btn bg-hejo2'%>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <hr style="background: #ddd">
+</div>

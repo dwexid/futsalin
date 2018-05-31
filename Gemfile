@@ -34,8 +34,11 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
+gem 'carrierwave', '~> 1.0'
+
 gem 'bcrypt', '~> 3.1.11'
 
+gem 'gmaps4rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -59,3 +62,6 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails', '~> 3.0'
 end
+
+gem 'material_icons'
+

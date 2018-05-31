@@ -1,0 +1,4 @@
+$(".tanggal").on('ajax:success', function(evt, data){
+    var target = $("#change_jadwal");
+    $(target).html(data);
+})

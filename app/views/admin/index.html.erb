@@ -3,19 +3,9 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="card">
-                <div class="card-header">Admin</div>
-                <div class="card-body">
-                    <div class="card-title">3 Account registered</div>
-                    <div class="card-text"></div>
-                    <a href="#" class="btn btn-info">Lihat</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card">
                 <div class="card-header">Member</div>
                 <div class="card-body">
-                    <div class="card-title">32 Account registered</div>
+                    <div class="card-title"><%=@member%> Account registered</div>
                     <div class="card-text"></div>
                     <a href="#" class="btn btn-info">Lihat</a>
                 </div>
@@ -25,10 +15,20 @@
             <div class="card">
                 <div class="card-header">Owner</div>
                 <div class="card-body">
-                    <div class="card-title">14 Account registered</div>
+                    <div class="card-title"><%=@owner%> registered</div>
                     <div class="card-text"></div>
                     <a href="#" class="btn btn-info">Lihat</a>
                 </div>
             </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">Lapang</div>
+                <div class="card-body">
+                    <div class="card-title"><%=@lapang%> registered</div>
+                    <div class="card-text"></div>
+                    <a href="#" class="btn btn-info">Lihat</a>
+                </div>
+            </div> 
         </div>
     </div>

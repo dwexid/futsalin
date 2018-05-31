@@ -1,6 +1,6 @@
-.body,
+body,
 html {
-    background: #fff;
+    background: #f9f9f9 !important;
 }
 
 .nav-item a {
@@ -56,4 +56,172 @@ html {
     border-left: 5px solid #17a2b8;
     margin-bottom: 20px;
     background: #dee;
+}
+
+//
+.main-content {
+    background: #fdfdfd;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-top: 0;
+}
+
+$hejo:#1abc9c;
+.bg-hejo {
+    background: #1abc9c;
+}
+
+.bg-bereum {
+    background: #e74c3c;
+}
+
+.bg-hejo2 {
+    background: #16a085;
+}
+
+.bg-open {
+    background: #d32f2f;
+}
+
+.bg-close {
+    background: #ffcdd2;
+}
+
+.grid-tmp {
+    margin-bottom: 20px;
+}
+
+.jadwal {
+    background: #fefefe !important;
+}
+
+.jadwal th,
+.jadwal td {}
+
+.line {
+    height: 10px;
+}
+
+.jadwal td {
+    color: #444;
+    text-align: center;
+}
+
+.jadwal thead td {
+    color: #fff;
+}
+
+.jadwal thead td a {
+    text-decoration: none;
+    display: block;
+    color: #ddd;
+}
+
+thead td a.active {
+    border-bottom: 1px solid #ddd;
+}
+
+.jadwal tbody button {
+    cursor: pointer
+}
+
+.modal-content {
+    border: 1px solid #ddd !important;
+}
+
+.modal-content {
+    border-radius: 1px !important;
+    .modal-header {
+        color: #eee !important;
+    }
+}
+
+.keterangan div {
+    float: left;
+}
+
+.keterangan .kotak {
+    height: 25px;
+    width: 25px;
+}
+
+.desc {
+    font-size: 13px;
+    font-style: italic;
+}
+
+.searchbox {
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.searchbox .btn {
+    color: #444 !important;
+}
+
+.new-order {
+    color: #fff;
+    padding: 5px 9px;
+    border-radius: 11px;
+    font-size: 12px;
+    background: $hejo;
+}
+
+.img-owner {
+    width: auto;
+    margin: auto;
+    height: 290px !important;
+}
+
+.img-profil {
+    overflow: hidden !important;
+    height: 300px;
+    padding: 0 !important;
+}
+
+.img-profil img,
+.img-thumb img {
+    margin: auto !important;
+    width: auto;
+    height: 100%;
+}
+
+.img-thumb {
+    overflow: hidden;
+    height: 190px;
+    width: auto;
+    margin: auto !important;
+    padding: 0 !important;
+}
+
+.img-thumb img {
+    width: 100%;
+    height: auto;
+}
+
+.brand {
+    text-decoration: none !important;
+    color: #eee !important;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.main-content {
+    color: #555;
+}
+
+.navbar-brand {
+    color: #eee !important;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.card-img-top{
+    height: 250px;
+    width: auto;
+    margin: auto;
 }

@@ -1,0 +1,14 @@
+ <div class="row" >
+    <div class="col-md-10 offset-md-1">
+        <div class="col-md-12 title">
+            <span>Notifikasi</span>
+        </div>
+        <div class="col-md-12">
+            <% @notifs.each do |d| %>
+                <div class="alert alert-info">
+                    <%=d.isi%>
+                </div>
+            <%end%>
+        </div>
+    </div>
+</div>
