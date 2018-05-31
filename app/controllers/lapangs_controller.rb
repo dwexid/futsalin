@@ -25,7 +25,7 @@ class LapangsController < ApplicationController
                 b=1
             end
         end
-
+ 
         @jadwal_new = Jadwal.new
 
         if params[:id_owner]

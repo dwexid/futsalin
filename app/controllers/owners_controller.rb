@@ -56,7 +56,7 @@ class OwnersController < ApplicationController
 
     private
     def getParams
-        params.require(:owner).permit(:nama_tempat,:alamat,:kontak,:image)
+        params.require(:owner).permit(:nama_tempat,:alamat,:kontak, :lat, :lang, :image)
     end
 
     private 

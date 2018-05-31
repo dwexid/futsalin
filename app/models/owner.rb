@@ -6,6 +6,8 @@ class Owner < ApplicationRecord
     validates :nama_tempat, presence: true
     validates :alamat, presence: true
     validates :kontak, presence: true
+    validates :lat, presence: true
+    validates :lang, presence: true
 
     mount_uploader :image, ImageUploader
 

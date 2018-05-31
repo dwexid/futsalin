@@ -1,13 +1,14 @@
 <% content_for :jumbotron do %>
 
     <div class="jumbotron" style="z-index: 99">
-        <h1 class="display-4">Futsal App</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. </p>
+        <h1 class="display-4"><i>~ Futsalin</i></h1>
+        <p class="lead">
+            is a web-based software built to simplify the process of rent futsal field. 
+            In this application the user (futsal enthusiasts) can receive the schedule information 
+            and field list inputted by the owner (futsal field providers), the user can also specify 
+            the schedule and the field they will rent. In addition users can also register as owner. and the owners can input or update futsal field data as well as rental schedule. </p>
         <hr class="my-4">
-        <p class="lead"><a class="btn btn-info">Learn more..</a></p>
+        <p class="lead"><a class="btn btn-info" style="width: 160px;border-radius:50px !important">MULAI</a></p>
     </div>
 <% end %>
 
@@ -17,8 +18,8 @@
     <div class="row">
         <% @owners.each do |own| %>
             <div class="col-md-3 col-sm-4 col-xs-6 grid-tmp">
-                <div class="card">
-                    <%= image_tag ('a.jpg'), class: 'card-img-top' %>
+                <div class="card" style="overvlow:hidden">
+                    <%= image_tag (own.image_url), class: 'card-img-top' %>
                     <div style="padding: 15px" class="card-block">
                         <h4 class="card-title"><%=own.nama_tempat%></h4>
                         <p class="card-text"><%=own.alamat%><br><%=own.kontak%></p>

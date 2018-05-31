@@ -14,7 +14,7 @@
                     <p><span class="display-5">Jumlah Lapang: 200</span></p>
                 </div>
                 <div class="col-sm-4 img-profil">
-                    <%= image_tag (@lapang.image_url), :class => 'im' unless @lapang.image.blank? %>
+                    <%= image_tag (@lapang.image_url), :class => 'im img-thumbnail' unless @lapang.image.blank? %>
                 </div>
             </div>
         </div>
@@ -44,13 +44,20 @@
                                 <% end %>
                             <tr>
                         </thead>
+                        
+                        <% if !account_signed_in? %>
+                            <%  status="" %>
+                        <% else %>
+                            <% status=current_account.status %>
+                        <% end %>
+
                         <tbody id="change_jadwal">
                             <tr>
                                 <% a=6 %>
                                 <% b=7 %>
                                 <% for i in 0..20 %>
                                     <% if @jdw[i].nil? %>
-                                        <td> - <br><button type="button" data-target="#tampilkan" data-toggle="modal" class="btn-booking btn btn-sm bg-success"><%=a<10?'0':''%><span id="get-mulai"><%=a%></span>:00-<%=b<10?'0':''%><%=b%>:00</button></td>
+                                        <td> - <br><button <%= status=="admin" || status=="owner"?"disabled":""%> type="button" data-target="#tampilkan" data-toggle="modal" class="btn-booking btn btn-sm bg-success"><%=a<10?'0':''%><span id="get-mulai"><%=a%></span>:00-<%=b<10?'0':''%><%=b%>:00</button></td>
                                     <% elsif @jdw[i].status==0; %>
                                         <td> <%=@jdw[i].fullname%>  <br><span class="btn btn-sm btn-warning"><%=a<10?'0':''%><%=a%>:00-<%=b<10?'0':''%><%=b%>:00</span></td>
                                     <% elsif @jdw[i].status==1%>

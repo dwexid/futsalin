@@ -180,7 +180,6 @@ thead td a.active {
     overflow: hidden !important;
     height: 300px;
     padding: 0 !important;
-    border: 1px solid #ddd;
 }
 
 .img-profil img,
@@ -192,7 +191,9 @@ thead td a.active {
 
 .img-thumb {
     overflow: hidden;
-    height: 170px;
+    height: 190px;
+    width: auto;
+    margin: auto !important;
     padding: 0 !important;
 }
 
@@ -217,4 +218,10 @@ thead td a.active {
     color: #eee !important;
     font-weight: bold;
     font-style: italic;
+}
+
+.card-img-top{
+    height: 250px;
+    width: auto;
+    margin: auto;
 }

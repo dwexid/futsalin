@@ -38,6 +38,7 @@ gem 'carrierwave', '~> 1.0'
 
 gem 'bcrypt', '~> 3.1.11'
 
+gem 'gmaps4rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

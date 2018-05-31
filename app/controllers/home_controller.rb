@@ -22,6 +22,8 @@ class HomeController < ApplicationController
     def show
         @tempat = Owner.find(params[:id])
         @lapangs = Lapang.where("id_owner = ?",@tempat.id)
+        @lat = -6.9314398
+        @lng = 107.7175808
     end
 
 end

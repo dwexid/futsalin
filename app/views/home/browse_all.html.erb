@@ -1,7 +1,7 @@
 <div class="col-sm-12 searchbox">
     <%= form_tag(cari_path, {:method => "get", class: 'form-inline col-md-6 offset-md-3'}) do %>
-        <%= text_field_tag 'kota', @kota, placeholder: 'Nama kota', class: 'form-control mr-sm-2'%>
-        <%= text_field_tag 'cari', @cari, placeholder: 'Tempat futsal', class: 'form-control mr-sm-2'%>
+        <%= text_field_tag 'kota', @kota, placeholder: 'Alamat', class: 'form-control mr-sm-2'%>
+        <%= text_field_tag 'cari', @cari, placeholder: 'Nama gor', class: 'form-control mr-sm-2'%>
         <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
     <% end %>
 </div>

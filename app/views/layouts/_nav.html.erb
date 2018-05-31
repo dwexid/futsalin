@@ -29,6 +29,13 @@
                         Notification <span style="position:relative;bottom: 3px" class="new-order">1 </span>
                     </a>
                 </li>
+
+                <% if current_account.status=="admin" %>
+                    <li class="nav-item"><%= link_to "Dashboard", admin_dashboard_path, :class => 'nav-link'%></li>
+                <% elsif current_account.status=="owner" %>
+                    <li class="nav-item"><%= link_to "Dashboard", owner_dashboard_path, :class => 'nav-link'%></li>
+                <% end %>
+
                 <li class="nav-item"><%= link_to "Edit profil", edit_user_path(current_account.id), :class => 'nav-link'%></li>
                 <li class="nav-item"><%= link_to "Logout", logout_path, :class => 'nav-link' %></li>
             <% end %>
